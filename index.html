@@ -214,7 +214,7 @@
       <section class="section">
         <div class="profile-photo">
           <img
-            src="portfolio pic1.png"
+            src="https://github.com/vamsimyla/github-portfolio/blob/main/portfolio%20pic1.png?raw=true"
             alt="Vamsi
           Myla"
             id="myImg"
@@ -333,27 +333,158 @@
         <h2 class="section-title">Graduate Projects</h2>
         <ul class="projects-list">
           <li>
-            <strong
-              >Predicting Hospital Readmissions Using Diabetes Dataset</strong
-            >
-            (June 2024) <br />Conducted data preprocessing, exploratory data
-            analysis, and implemented machine learning models to predict
-            hospital readmissions.
+            <button class="collapsible">
+              Predicting Hospital Readmissions Using Diabetes Dataset (June
+              2024)
+            </button>
+            <div class="content">
+              <p>
+                Conducted an in-depth analysis of the Diabetes 130-US Hospitals
+                dataset (101,766 records) aimed at predicting hospital
+                readmissions. The project involved extensive exploratory data
+                analysis (EDA) and machine learning techniques using Python
+                (Pandas, Scikit-learn) to derive actionable insights for
+                healthcare providers.
+              </p>
+              <p>
+                <strong>Exploratory Data Analysis:</strong> Analyzed data
+                distributions, identified trends and outliers, and handled
+                missing data using SQL and Python. Key findings included:
+              </p>
+              <ul>
+                <li>
+                  Bimodal peaks in age distribution, highlighting high medical
+                  engagement among older age groups.
+                </li>
+                <li>
+                  Common medication range was found to be between 10 to 20, with
+                  most patients undergoing 30 to 60 lab procedures.
+                </li>
+                <li>
+                  Moderate positive correlations between the number of
+                  medications and the length of hospital stay.
+                </li>
+              </ul>
+              <p>
+                <strong>Data Preprocessing:</strong> Applied normalization
+                techniques for continuous variables and one-hot encoding for
+                categorical data using Python libraries (Pandas, Scikit-learn),
+                ensuring that the data was properly scaled and ready for machine
+                learning models.
+              </p>
+              <p>
+                <strong>Machine Learning Models:</strong> Implemented Logistic
+                Regression, Random Forest, and Gradient Boosting models for
+                predicting readmissions using Scikit-learn. The Random Forest
+                model emerged as the most effective, providing the highest
+                accuracy, precision, and recall.
+              </p>
+            </div>
           </li>
           <li>
-            <strong>Heart Attack Prediction Using Logistic Regression</strong>
-            (March 2024) <br />Developed a predictive model with 90.16%
-            accuracy, outperforming alternative algorithms.
+            <button class="collapsible">
+              Heart Attack Prediction Using Logistic Regression (March 2024)
+            </button>
+            <div class="content">
+              <p>
+                Developed and optimized a predictive model using logistic
+                regression to forecast heart attacks with a 90.16 percent
+                accuracy rate, outperforming alternative machine learning
+                algorithms such as SVM, Decision Tree, and GB Classifier.
+              </p>
+              <p>
+                <strong>Advanced Techniques:</strong> Employed advanced data
+                visualization and machine learning techniques, including count
+                plots, KDE plots, and correlation matrices, to analyze and
+                interpret complex medical datasets. This facilitated the
+                identification of significant predictors for heart attack risks,
+                enabling the development of a highly accurate and reliable
+                predictive tool for preventative healthcare strategies.
+              </p>
+            </div>
           </li>
           <li>
-            <strong>Culinary Exchange Hub</strong> (Nov 2023) <br />Developed a
-            culinary website with features for creating, discovering, and
-            interacting with recipes using HTML, CSS, JavaScript, Python, and
-            SQLite/PostgreSQL.
+            <button class="collapsible">
+              Culinary Exchange Hub (Nov 2023)
+            </button>
+            <div class="content">
+              <p>
+                Developed a culinary website with features for creating,
+                discovering, and interacting with recipes, using HTML, CSS,
+                JavaScript, Python, and SQLite/PostgreSQL. The project enabled
+                user registration for personalized experiences and multimedia
+                support for recipe sharing.
+              </p>
+            </div>
           </li>
         </ul>
       </section>
     </div>
+
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      for (var i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+            content.style.padding = "0 18px";
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            content.style.padding = "18px";
+          }
+        });
+      }
+    </script>
+
+    <style>
+      .collapsible {
+        background-color: #2b2b2b;
+        color: #ffffff; /* Text color for better visibility */
+        cursor: pointer;
+        padding: 15px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 1.2em;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .collapsible:hover,
+      .collapsible.active {
+        background-color: #00bcd4;
+        color: #121212;
+      }
+
+      .content {
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        background-color: #444444; /* Lighter background for better contrast */
+        max-height: 0;
+        padding: 0 18px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+
+      .content p,
+      .content ul {
+        margin: 10px 0;
+        font-size: 1em;
+        color: #ffffff; /* Text color for better visibility */
+      }
+
+      .content ul {
+        padding-left: 20px;
+      }
+
+      .content ul li {
+        margin-bottom: 5px;
+      }
+    </style>
 
     <!-- Skills Section -->
     <div class="container" id="skills">
