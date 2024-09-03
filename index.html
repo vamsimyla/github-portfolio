@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vamsi Myla - Portfolio</title>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+
+      header {
+        background-color: #1f1f1f;
+        padding: 20px 0;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+        color: #00bcd4;
+      }
+
+      header p {
+        margin: 5px 0;
+        font-size: 1.2em;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        background: #00bcd4;
+        padding: 15px;
+      }
+
+      nav a {
+        color: #fff;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1em;
+        transition: color 0.3s ease;
+        cursor: pointer;
+      }
+
+      nav a:hover {
+        color: #121212;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #1f1f1f;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        display: none;
+      }
+
+      .section-title {
+        margin: 20px 0;
+        font-size: 2em;
+        color: #00bcd4;
+        text-align: center;
+        border-bottom: 2px solid #00bcd4;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+
+      .profile-photo {
+        float: left; /* Align the image to the left */
+        margin-right: 20px; /* Add space between the image and text */
+        cursor: pointer; /* Make the image clickable */
+      }
+
+      .profile-photo img {
+        border-radius: 50%;
+        width: 150px; /* Adjusted size for image */
+        height: 150px;
+        object-fit: cover;
+        border: 3px solid #00bcd4;
+      }
+
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+
+      .modal-content {
+        margin: 10% auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+      }
+
+      .modal-content img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .about-text {
+        text-align: justify;
+        text-justify: inter-word;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 700px; /* Adjust as needed for your design */
+      }
+
+      .skills-list,
+      .projects-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .skills-list li,
+      .projects-list li {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #2b2b2b;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .skills-list li:hover,
+      .projects-list li:hover {
+        background-color: #00bcd4;
+        color: #121212;
+      }
+
+      footer {
+        background: #1f1f1f;
+        color: #757575;
+        text-align: center;
+        padding: 15px 0;
+        margin-top: 20px;
+        border-top: 1px solid #2b2b2b;
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+        }
+
+        .profile-photo {
+          float: none;
+          margin: 0 auto 20px auto;
+          text-align: center;
+        }
+
+        .profile-photo img {
+          display: block;
+          margin: 0 auto;
+        }
+
+        .about-text {
+          max-width: 100%;
+          padding: 0 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Vamsi Myla</h1>
+      <p>Healthcare Data Analytics | Software Engineer | Data Enthusiast</p>
+    </header>
+
+    <nav>
+      <a onclick="showSection('about')">About</a>
+      <a onclick="showSection('education')">Education</a>
+      <a onclick="showSection('experience')">Experience</a>
+      <a onclick="showSection('work-projects')">Work Projects</a>
+      <a onclick="showSection('graduate-projects')">Graduate Projects</a>
+      <a onclick="showSection('skills')">Skills</a>
+      <a onclick="showSection('contact')">Contact</a>
+    </nav>
+
+    <!-- About Section -->
+    <div class="container" id="about">
+      <section class="section">
+        <div class="profile-photo">
+          <img
+            src="C:\Users\mylav\Downloads\portfolio pic1.png"
+            alt="Vamsi
+          Myla"
+            id="myImg"
+            onclick="openModal()"
+          />
+        </div>
+        <h2 class="section-title">About Me</h2>
+        <p class="about-text">
+          Driven by an enthusiasm for a wide range of innovations in technology,
+          my objective is to have a significant impact on the IT domain by
+          employing my proficiencies in web development, software testing, and
+          programming. I am particularly interested in how machine learning (ML)
+          and artificial intelligence (AI) can advance society, solve complex
+          issues, and transform a variety of sectors. I am dedicated to
+          harnessing AI and ML for practical, impactful solutions, combining
+          technical expertise with a problem-solving mindset to enhance
+          productivity and creativity.
+        </p>
+      </section>
+    </div>
+
+    <!-- Education Section -->
+    <div class="container" id="education">
+      <section class="section">
+        <h2 class="section-title">Education</h2>
+        <p>
+          <strong>Master of Science in Engineering, Computer Science</strong> -
+          Portland State University (Sep 2023 - Mar 2025)
+        </p>
+        <p>GPA: 3.91/4.0</p>
+        <p>
+          Relevant Coursework: Artificial Intelligence, Machine Learning, Health
+          Care Data Analysis, Algorithms Design/Analysis, Intro to Web
+          Development
+        </p>
+        <p>
+          <strong
+            >Bachelor of Engineering, Computer Science and Engineering</strong
+          >
+          - KL University (Jul 2016 - May 2020)
+        </p>
+        <p>GPA: 7.85/10</p>
+      </section>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="container" id="experience">
+      <section class="section">
+        <h2 class="section-title">Professional Experience</h2>
+        <p>
+          <strong>Software Engineer</strong> - Tech Mahindra, Hyderabad (Apr
+          2021 – Mar 2023)
+        </p>
+        <ul class="projects-list">
+          <li>
+            Specialized in functional, manual, and API testing for low-code
+            platform applications such as Mendix and Iproof.
+          </li>
+          <li>
+            Led the implementation of Postman for API testing, improving testing
+            effectiveness by 30%.
+          </li>
+          <li>
+            Cut the time-to-market for new software releases by 20% through
+            agile methodologies.
+          </li>
+          <li>
+            Mentored interns and new hires, fostering a collaborative work
+            environment and enhancing team capabilities.
+          </li>
+        </ul>
+        <p>
+          <strong>Software Intern</strong> - Tech Mahindra, Hyderabad (Dec 2020
+          – Mar 2021)
+        </p>
+        <ul class="projects-list">
+          <li>
+            Trained in end-to-end system testing for low-code platform
+            applications.
+          </li>
+          <li>
+            Transitioned to a full-time Software Engineer role due to strong
+            performance during the internship.
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Work Projects Section -->
+    <div class="container" id="work-projects">
+      <section class="section">
+        <h2 class="section-title">Work Projects</h2>
+        <ul class="projects-list">
+          <li>
+            <strong>Parker (Mendix) - Manual Tester</strong> (Apr 2021 – Jan
+            2022) <br />Developed and executed test cases, reported bugs, and
+            collaborated with the development team for resolution.
+          </li>
+          <li>
+            <strong>Bank of Ireland (BOI Y1) - Manual/API Tester</strong> (Jan
+            2022 – Dec 2022) <br />Conducted rigorous API and manual testing,
+            reported bugs, and updated data in Zephyr and JIRA.
+          </li>
+          <li>
+            <strong>Choice Bank - Manual/API Tester</strong> (Jan 2023 – Mar
+            2023) <br />Performed API and manual testing, reported bugs, and
+            collaborated with developers for timely fixes.
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Graduate Projects Section -->
+    <div class="container" id="graduate-projects">
+      <section class="section">
+        <h2 class="section-title">Graduate Projects</h2>
+        <ul class="projects-list">
+          <li>
+            <strong
+              >Predicting Hospital Readmissions Using Diabetes Dataset</strong
+            >
+            (June 2024) <br />Conducted data preprocessing, exploratory data
+            analysis, and implemented machine learning models to predict
+            hospital readmissions.
+          </li>
+          <li>
+            <strong>Heart Attack Prediction Using Logistic Regression</strong>
+            (March 2024) <br />Developed a predictive model with 90.16%
+            accuracy, outperforming alternative algorithms.
+          </li>
+          <li>
+            <strong>Culinary Exchange Hub</strong> (Nov 2023) <br />Developed a
+            culinary website with features for creating, discovering, and
+            interacting with recipes using HTML, CSS, JavaScript, Python, and
+            SQLite/PostgreSQL.
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="container" id="skills">
+      <section class="section">
+        <h2 class="section-title">Skills</h2>
+        <ul class="skills-list">
+          <li>Programming Languages: Python, Java, C/C++</li>
+          <li>Web Technologies: HTML, CSS, JavaScript, React, Node.js</li>
+          <li>Quality Assurance Tools: JIRA, Zephyr, Postman, Selenium</li>
+          <li>Databases: PostgreSQL, MySQL</li>
+          <li>Other Technologies: Visual Studio Code, Git</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="container" id="contact">
+      <section class="section">
+        <h2 class="section-title">Contact</h2>
+        <p>
+          Email:
+          <a href="mailto:mylavamsikrishnasai@gmail.com" style="color: #00ffcc">
+            mylavamsikrishnasai@gmail.com
+          </a>
+        </p>
+        <p>
+          LinkedIn:
+          <a
+            href="https://www.linkedin.com/in/vamsimyla"
+            target="_blank"
+            style="color: #00ffcc"
+          >
+            linkedin.com/in/vamsimyla
+          </a>
+        </p>
+        <p>
+          GitHub:
+          <a
+            href="https://github.com/vamsimyla"
+            target="_blank"
+            style="color: #00ffcc"
+          >
+            github.com/vamsimyla
+          </a>
+        </p>
+      </section>
+    </div>
+
+    <!-- Modal for displaying full-size image -->
+    <div id="myModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div class="modal-content">
+        <img id="img01" alt="Vamsi Myla" />
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Vamsi Myla. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function showSection(sectionId) {
+        // Hide all sections
+        const sections = document.querySelectorAll(".container");
+        sections.forEach((section) => {
+          section.style.display = "none";
+        });
+
+        // Show the selected section
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.style.display = "block";
+        }
+      }
+
+      // Optionally, show the first section by default
+      showSection("about");
+
+      // Modal functionality
+      function openModal() {
+        var modal = document.getElementById("myModal");
+        var img = document.getElementById("myImg");
+        var modalImg = document.getElementById("img01");
+
+        modal.style.display = "block";
+        modalImg.src = img.src;
+      }
+
+      function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
